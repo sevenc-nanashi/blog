@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
       title = markdoc.frontmatter.title + " - " + TITLE
     }
     if (markdoc.frontmatter.description) {
-      description = markdoc.frontmatter.description
+      description = markdoc.frontmatter.summary
     }
   }
 
@@ -85,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
               <>
                 <TableOfContents toc={toc} />
 
-                <main className="flex p-6 flex-grow content-bg rounded mx-8">
+                <main className="flex p-6 flex-grow content-bg rounded xl:mx-8 lg:ml-8">
                   <Component {...pageProps} />
                 </main>
                 <div className="w-1/5 hidden xl:block" />
