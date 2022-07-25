@@ -17,16 +17,19 @@ jobs:
       - name: Setup yarn
         run: npm update -g yarn
 
+      - name: Generate lockfile
+        run: yarn install --mode update-lockfile
+
       - name: Find cache
         uses: actions/cache@v3
-        id: node_modules_cache_id
+        id: yarn_cache
         env:
-          cache-name: cache-node-modules
+          cache-name: cache-yarn
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
       - name: Install dependencies
-        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        if: ${{ steps.yarn_cache.outputs.cache-hit != 'true' }}
         run: yarn install
         env:
           NODE_ENV: production
