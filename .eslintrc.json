@@ -8,28 +8,26 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/recommended"
   ],
   "rules": {
     "max-len": ["error", { "code": 120 }],
     "curly": "error",
     "quotes": ["error", "double"],
     "prettier/prettier": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
         "argsIgnorePattern": "^_"
       }
     ],
-    "@typescript-eslint/explicit-module-boundary-types": "off"
+    "react/prop-types": "off"
   },
   "overrides": [
-    {
-      "files": ["**/*.ts"],
-      "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "error"
-      }
-    },
     {
       "files": "*.config.js",
       "env": {

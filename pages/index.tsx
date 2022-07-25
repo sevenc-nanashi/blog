@@ -4,7 +4,7 @@ import Link from "next/link"
 import React from "react"
 import * as yaml from "js-yaml"
 
-export async function getStaticProps(context) {
+export async function getStaticProps(_context) {
   const articles = await Promise.all(
     (
       await fs.readdir("./pages/articles", { withFileTypes: true })
@@ -44,20 +44,23 @@ export async function getStaticProps(context) {
   }
 }
 
-export default (props) => (
+const Index = (props) => (
   <div className="flex flex-col w-full space-y-4">
     <div className="content-bg round p-4 rounded shadow-md">
       <h1>記事一覧</h1>
     </div>
     {props.articles.map((article) => (
-      <Link href={`/articles/${article.name}`}>
+      <Link href={`/articles/${article.name}`} key={article.name}>
         <a>
           <div className="content-bg round p-4 w-full rounded">
             <h2>{article.title}</h2>
             <div>
               {article.tags.length > 0 ? (
                 article.tags.map((e) => (
-                  <span className="rounded-full bg-theme-pale text-sm py-[2px] px-2 mr-1 text-theme">
+                  <span
+                    className="rounded-full bg-theme-pale text-sm py-[2px] px-2 mr-1 text-theme"
+                    key={`${article.name}-${e}`}
+                  >
                     {e}
                   </span>
                 ))
@@ -78,3 +81,5 @@ export default (props) => (
     ))}
   </div>
 )
+
+export default Index

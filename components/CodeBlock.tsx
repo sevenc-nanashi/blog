@@ -6,7 +6,9 @@ export function CodeBlock({ children, language }) {
   const ref = React.useRef(null)
 
   React.useEffect(() => {
-    if (ref.current) Prism.highlightElement(ref.current, false)
+    if (ref.current) {
+      Prism.highlightElement(ref.current, false)
+    }
   }, [children])
 
   return (

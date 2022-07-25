@@ -5,7 +5,7 @@ import { OpenFilled } from "@fluentui/react-icons"
 export function Link({ href, children }) {
   if (href.startsWith("https://")) {
     return (
-      <a href={href} target="_blank">
+      <a href={href} target="_blank" rel="noopener noreferrer">
         {children}
         <OpenFilled />
       </a>

@@ -10,8 +10,8 @@ module.exports = {
     extend: {
       colors: {
         theme: "#48b0d5",
-        "theme-pale": "#48b0d544"
-      }
+        "theme-pale": "#48b0d544",
+      },
     },
   },
   plugins: [],

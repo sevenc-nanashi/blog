@@ -22,7 +22,7 @@ export const heading = {
     level: { type: Number, required: true, default: 1 },
     className: { type: String },
   },
-  transform(node, config) {
+  transform(node, config): Tag {
     const attributes = node.transformAttributes(config)
     const children = node.transformChildren(config)
     const id = generateID(children, attributes)
