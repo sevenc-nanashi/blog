@@ -13,10 +13,11 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-    
-      - name: "Find cache"
+
+      - name: Setup yarn
+        run: npm update -g yarn
+
+      - name: Find cache
         uses: actions/cache@v3
         id: node_modules_cache_id
         env:
