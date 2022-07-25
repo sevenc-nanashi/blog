@@ -7,21 +7,29 @@
     "format": "prettier -w ."
   },
   "dependencies": {
+    "@fluentui/react-icons": "^2.0.177",
     "@markdoc/markdoc": "latest",
     "@markdoc/next.js": "latest",
+    "js-yaml": "^4.1.0",
     "next": "latest",
+    "prism-themes": "^1.9.0",
     "prismjs": "^1.28.0",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "sass": "^1.54.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "autoprefixer": "^10.4.7",
     "eslint": "^8.20.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "postcss": "^8.4.14",
     "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.6",
     "typescript": "latest"
   }
 }

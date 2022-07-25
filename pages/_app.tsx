@@ -1,20 +1,20 @@
 import React from "react"
 import Head from "next/head"
-import Link from "next/link"
+// import Link from "next/link"
 
-import { SideNav, TableOfContents, TopNav } from "../components"
+import { TableOfContents, TopNav } from "../components"
 
 import "prismjs"
 // Import other Prism themes here
-import "prismjs/components/prism-bash.min"
-import "prismjs/themes/prism.css"
 
-import "../public/globals.css"
+import "../public/globals.scss"
+import "../public/article.scss"
+import "../public/CodeBlock.scss"
 
 import type { AppProps } from "next/app"
 
-const TITLE = "Markdoc"
-const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework"
+const TITLE = "名前のない日記｡"
+const DESCRIPTION = "名無し｡の色々な書き散らし。"
 
 function collectHeadings(node, sections = []) {
   if (node) {
@@ -39,14 +39,14 @@ function collectHeadings(node, sections = []) {
   return sections
 }
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const { markdoc } = pageProps
 
   let title = TITLE
   let description = DESCRIPTION
   if (markdoc) {
     if (markdoc.frontmatter.title) {
-      title = markdoc.frontmatter.title
+      title = markdoc.frontmatter.title + " - " + TITLE
     }
     if (markdoc.frontmatter.description) {
       description = markdoc.frontmatter.description
@@ -56,6 +56,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const toc = pageProps.markdoc?.content
     ? collectHeadings(pageProps.markdoc.content)
     : []
+  if (pageProps.markdoc?.content) {
+    pageProps.markdoc.content.children
+      .filter((t) => t.name === "Fence")
+      .map((t) => t.attributes.language)
+      .forEach((t) => {
+        require(`prismjs/components/prism-${t}.min`)
+      })
+  }
 
   return (
     <>
@@ -68,34 +76,29 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TopNav>
-        <Link href="/docs">Docs</Link>
-      </TopNav>
-      <div className="page">
-        <SideNav />
-        <main className="flex column">
-          <Component {...pageProps} />
-        </main>
-        <TableOfContents toc={toc} />
+      <div className="dark:bg-gray-900">
+        <div className="min-h-screen bg-theme-pale">
+          <TopNav />
+          <div className="flex flex-row p-8 justify-center h-full">
+            {toc.length > 0 ? (
+              <>
+                <TableOfContents toc={toc} />
+
+                <main className="flex p-6 flex-grow content-bg rounded mx-8">
+                  <Component {...pageProps} />
+                </main>
+                <div className="w-1/5" />
+              </>
+            ) : (
+              <>
+                <main className="flex p-4 flex-grow rounded mx-8">
+                  <Component {...pageProps} />
+                </main>
+              </>
+            )}
+          </div>
+        </div>
       </div>
-      <style>
-        {`
-          .page {
-            position: fixed; 
-            top: var(--top-nav-height);
-            display: flex;
-            width: 100vw;
-            flex-grow: 1;
-          }
-          main {
-            overflow: auto;
-            height: calc(100vh - var(--top-nav-height));
-            flex-grow: 1;
-            font-size: 16px;
-            padding: 0 2rem 2rem;
-          }
-        `}
-      </style>
     </>
   )
 }

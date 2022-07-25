@@ -14,19 +14,6 @@ export function CodeBlock({ children, language }) {
       <pre ref={ref} className={`language-${language}`}>
         {children}
       </pre>
-      <style jsx>
-        {`
-          .code {
-            position: relative;
-          }
-
-          /* Override Prism styles */
-          .code :global(pre[class*="language-"]) {
-            text-shadow: none;
-            border-radius: 4px;
-          }
-        `}
-      </style>
     </div>
   )
 }

@@ -1,38 +1,17 @@
 import React from "react"
 import Link from "next/link"
 
-export function TopNav({ children }) {
+export function TopNav() {
   return (
-    <nav>
-      <Link href="/" className="flex">
-        Home
+    <nav className="sticky flex px-8 py-4 w-full flex-row bg-theme-pale dark:bg-gray-800 shadow-[0_2px_4px_2px_rgb(0_0_0_/_0.1)]">
+      <Link href="/">
+        <a className="text-xl font-bold">名前のない日記。</a>
       </Link>
-      <section>{children}</section>
-      <style jsx>
-        {`
-          nav {
-            top: 0;
-            position: fixed;
-            width: 100%;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            padding: 1rem 2rem;
-            background: white;
-            border-bottom: 1px solid var(--border-color);
-          }
-          nav :global(a) {
-            text-decoration: none;
-          }
-          section {
-            display: flex;
-            gap: 1rem;
-            padding: 0;
-          }
-        `}
-      </style>
+      <div className="ml-auto opacity-50 hover:opacity-100">
+        <a href="https://github.com/sevenc-nanashi/blog" target="_blank">
+          GitHub
+        </a>
+      </div>
     </nav>
   )
 }
