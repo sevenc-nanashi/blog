@@ -88,7 +88,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <main className="flex p-6 flex-grow content-bg rounded mx-8">
                   <Component {...pageProps} />
                 </main>
-                <div className="w-1/5" />
+                <div className="w-1/5 hidden xl:block" />
               </>
             ) : (
               <>

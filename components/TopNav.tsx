@@ -5,7 +5,8 @@ export function TopNav() {
   return (
     <nav
       className={
-        "sticky flex px-8 py-4 w-full flex-row bg-theme-pale dark:bg-gray-800 shadow-[0_2px_4px_2px_rgb(0_0_0_/_0.1)]"
+        "sticky flex items-center px-8 h-16 w-full flex-row " +
+        "bg-theme-pale dark:bg-gray-800 shadow-[0_2px_4px_2px_rgb(0_0_0_/_0.1)]"
       }
     >
       <Link href="/">
