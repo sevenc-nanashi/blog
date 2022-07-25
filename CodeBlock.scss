@@ -1,0 +1,20 @@
+@import "prism-themes/themes/prism-one-light.css" (prefers-color-scheme: light);
+@import "prism-themes/themes/prism-one-dark.css" (prefers-color-scheme: dark);
+
+article {
+  .code {
+    position: relative;
+  }
+
+  /* Override Prism styles */
+  .code :global(pre[class*="language-"]) {
+    border-radius: 4px;
+  }
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  // @apply text-slate-900 dark:text-slate-100;
+  @apply bg-slate-100 dark:bg-gray-600 rounded;
+  // text-shadow: none !important;
+}
