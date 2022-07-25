@@ -73,6 +73,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="referrer" content="strict-origin" />
         <meta name="title" content={title} />
         <meta name="description" content={description} />
+        <meta name="theme-color" content="#48b0d5" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
