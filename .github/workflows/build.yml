@@ -15,7 +15,7 @@ jobs:
         uses: actions/setup-node@v3
     
       - name: Install dependencies
-        run: npm ci
+        run: npm install --omit=dev
       
       - name: Build
         run: npm run build
