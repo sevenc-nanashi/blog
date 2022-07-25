@@ -48,7 +48,7 @@ export default function App({ Component, pageProps }: AppProps) {
     if (markdoc.frontmatter.title) {
       title = markdoc.frontmatter.title + " - " + TITLE
     }
-    if (markdoc.frontmatter.description) {
+    if (markdoc.frontmatter.summary) {
       description = markdoc.frontmatter.summary
     }
   }
