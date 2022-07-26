@@ -77,7 +77,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="dark:bg-gray-900">
+      <div className="dark:bg-black">
         <div className="min-h-screen bg-theme-pale">
           <TopNav />
           <div className="flex flex-row p-8 justify-center h-full">

@@ -13,8 +13,8 @@ export function TableOfContents({ toc }) {
     <>
       <div
         className={
-          "flex justify-center items-center text-theme lg:hidden fixed " +
-          "bottom-2 left-2 w-12 h-12 rounded-full content-bg shadow-md cursor-pointer"
+          "flex justify-center items-center text-white lg:hidden fixed " +
+          "bottom-2 left-2 w-12 h-12 rounded-full bg-theme drop-shadow-2xl cursor-pointer"
         }
         onClick={() => {
           setOpen(true)
@@ -24,7 +24,7 @@ export function TableOfContents({ toc }) {
       </div>
       <nav
         className={[
-          "lg:min-w-1/5 lg:w-max w-screen h-screen lg:h-full",
+          "lg:min-w-1/5 lg:w-max w-screen h-screen lg:h-full drop-shadow-xl lg:drop-shadow-none",
           "t-0 fixed lg:relative -translate-y-24 lg:translate-y-0 pointer-events-none lg:pointer-events-auto",
           isOpen || "-translate-x-full lg:translate-x-0 shadow-md lg:shadow-sm",
           isOpen && "pointer-events-auto z-20 bg-theme-pale",
