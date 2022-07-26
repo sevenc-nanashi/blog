@@ -35,6 +35,7 @@ export function TableOfContents({ toc }) {
             "flex flex-col content-bg rounded-r lg:rounded p-4 h-full fixed lg:static top-0 left-0",
             isOpen ||
               "-translate-x-full lg:translate-x-0 shadow-md lg:shadow-sm",
+            isOpen && "w-2/3",
           ]
             .filter((c) => typeof c === "string")
             .join(" ")}
