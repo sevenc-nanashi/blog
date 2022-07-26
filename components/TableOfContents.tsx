@@ -23,7 +23,7 @@ export function TableOfContents({ toc }) {
       </div>
       <nav
         className={[
-          "lg:min-w-1/5 lg:w-max w-screen h-screen lg:h-full drop-shadow-xl lg:drop-shadow-none",
+          "lg:min-w-[20%] lg:w-max w-screen h-screen lg:h-full drop-shadow-xl lg:drop-shadow-none",
           "t-0 fixed lg:relative -translate-y-24 lg:translate-y-0 pointer-events-none lg:pointer-events-auto",
           isOpen || "-translate-x-full lg:translate-x-0 shadow-md lg:shadow-sm",
           isOpen && "pointer-events-auto z-20 bg-theme-pale",
