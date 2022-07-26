@@ -3,6 +3,7 @@ import { promises as fs } from "fs"
 import Link from "next/link"
 import React from "react"
 import * as yaml from "js-yaml"
+import child_process from "child_process"
 
 export async function getStaticProps(_context) {
   const articles = await Promise.all(
@@ -19,27 +20,30 @@ export async function getStaticProps(_context) {
         const frontmatter = yaml.load(parsed.attributes.frontmatter) as {
           title: string
           summary: string
-          date: Date
           tags: string[]
         }
+        const date =
+          parseInt(
+            child_process
+              .execSync(
+                `git log --diff-filter=A --pretty="%ct" -- ./pages/articles/${article.name}`
+              )
+              .toString()
+              .split("\n")[0]
+          ) * 1000
 
         return {
           name: article.name.replace(".md", ""),
           title: frontmatter.title,
           summary: frontmatter.summary,
-          date: frontmatter.date,
+          date,
           tags: frontmatter.tags,
         }
       })
   )
   return {
     props: {
-      articles: articles
-        .sort((a, b) => b.date.getTime() - a.date.getTime())
-        .map((article) => ({
-          ...article,
-          date: article.date.toISOString(),
-        })),
+      articles: articles.sort((a, b) => b.date - a.date),
     },
   }
 }
@@ -72,7 +76,7 @@ const Index = (props) => (
             <div className="opacity-50 flex">
               <p>
                 作成：
-                <time>{article.date.split("T")[0]}</time>
+                <time>{new Date(article.date).toLocaleString()}</time>
               </p>
             </div>
           </div>
