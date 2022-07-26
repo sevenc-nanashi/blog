@@ -35,7 +35,7 @@ export async function getStaticProps(_context) {
   return {
     props: {
       articles: articles
-        .sort((a, b) => a.date.getTime() - b.date.getTime())
+        .sort((a, b) => b.date.getTime() - a.date.getTime())
         .map((article) => ({
           ...article,
           date: article.date.toISOString(),

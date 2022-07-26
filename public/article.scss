@@ -24,4 +24,12 @@ article {
   a:not(.no-color) {
     @apply text-blue-500 dark:text-blue-300 border-b-[1px] border-blue-500 dark:border-blue-300;
   }
+
+  img {
+    @apply max-h-96;
+  }
+
+  div.code {
+    @apply text-sm;
+  }
 }

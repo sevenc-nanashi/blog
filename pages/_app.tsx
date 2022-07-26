@@ -85,14 +85,17 @@ export default function App({ Component, pageProps }: AppProps) {
               <>
                 <TableOfContents toc={toc} />
 
-                <main className="flex p-6 flex-grow content-bg rounded xl:mx-8 lg:ml-8">
+                <main className="p-6 flex-grow content-bg rounded xl:mx-8 lg:ml-8">
+                  <h1 id="root" className="mb-2 pb-2 border-b-2">
+                    {pageProps.markdoc.frontmatter.title}
+                  </h1>
                   <Component {...pageProps} />
                 </main>
                 <div className="w-1/5 hidden xl:block" />
               </>
             ) : (
               <>
-                <main className="flex p-4 flex-grow rounded mx-8">
+                <main className="flex p-4 flex-grow rounded lg:mx-8">
                   <Component {...pageProps} />
                 </main>
               </>

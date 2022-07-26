@@ -6,7 +6,6 @@ export function TableOfContents({ toc }) {
   const items = toc.filter(
     (item) => item.id && (item.level === 2 || item.level === 3)
   )
-  const title = toc.find((item) => item.level === 1)
   const [isOpen, setOpen] = useState(false)
 
   return (
@@ -42,7 +41,7 @@ export function TableOfContents({ toc }) {
         >
           <ul className="">
             <li className="text-theme text-xl font-bold">
-              <Link href={`#${title.id}`} passHref>
+              <Link href="#root" passHref>
                 <a>目次</a>
               </Link>
             </li>
@@ -66,6 +65,7 @@ export function TableOfContents({ toc }) {
                       onClick={() => {
                         setOpen(false)
                       }}
+                      className="hover:text-theme"
                     >
                       {item.title}
                     </a>
