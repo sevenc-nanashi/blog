@@ -76,7 +76,9 @@ const Index = (props) => (
             <div className="opacity-50 flex">
               <p>
                 作成：
-                <time>{new Date(article.date).toLocaleString()}</time>
+                <time suppressHydrationWarning>
+                  {new Date(article.date).toLocaleString()}
+                </time>
               </p>
             </div>
           </div>
