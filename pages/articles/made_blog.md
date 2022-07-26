@@ -7,8 +7,6 @@ tags:
 date: 2022-07-25
 ---
 
-# {% $markdoc.frontmatter.title %}
-
 [Markdoc](https://markdoc.io)というものを知ったのでブログ的なのを作ってみた。その経緯と色々。
 
 ## きっかけ
