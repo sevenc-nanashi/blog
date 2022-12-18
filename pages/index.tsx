@@ -54,7 +54,7 @@ const Index = (props) => (
       <h1>記事一覧</h1>
     </div>
     {props.articles.map((article) => (
-      <Link href={`/articles/${article.name}`} key={article.name}>
+      <Link legacyBehavior href={`/articles/${article.name}`} key={article.name}>
         <a>
           <div className="content-bg round p-4 w-full rounded">
             <h2>{article.title}</h2>

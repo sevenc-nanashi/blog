@@ -9,7 +9,7 @@ export function TopNav() {
         "bg-theme text-white shadow-[0_2px_4px_2px_rgb(0_0_0_/_0.1)]"
       }
     >
-      <Link href="/">
+      <Link legacyBehavior href="/">
         <a className="text-xl font-bold">名前のない日記。</a>
       </Link>
       <div className="ml-auto opacity-50 hover:opacity-100">

@@ -44,7 +44,7 @@ export function TableOfContents({ toc }) {
           >
             <ul className="pl-4 lg:pl-0">
               <li className="text-theme text-2xl lg:text-xl font-bold">
-                <Link href="#root" passHref>
+                <Link legacyBehavior href="#root" passHref>
                   <a>目次</a>
                 </Link>
               </li>
@@ -63,7 +63,7 @@ export function TableOfContents({ toc }) {
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <Link href={href} passHref>
+                    <Link legacyBehavior href={href} passHref>
                       <a
                         onClick={() => {
                           setOpen(false)

@@ -3,7 +3,7 @@ import * as React from "react"
 
 export function Heading({ id = "", level = 1, children, className }) {
   return (
-    <Link href={`#${id}`}>
+    <Link legacyBehavior href={`#${id}`}>
       <a className="no-color">
         {React.createElement(
           `h${level}`,

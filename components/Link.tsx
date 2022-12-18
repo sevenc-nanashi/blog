@@ -12,7 +12,7 @@ export function Link({ href, children }) {
     )
   } else {
     return (
-      <NextLink href={href}>
+      <NextLink legacyBehavior href={href}>
         <a>{children}</a>
       </NextLink>
     )
