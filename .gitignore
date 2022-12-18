@@ -3,5 +3,5 @@ node_modules/
 .next/
 .vercel
 package-lock.json
-yarn.lock
 out
+pnpm-lock.yaml

@@ -1,27 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@300;400;500;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 h1 {
-  @apply text-3xl;
+  @apply text-3xl font-bold;
 }
 
 h2 {
-  @apply text-2xl;
+  @apply text-2xl font-bold;
 }
 
 h3 {
-  @apply text-xl;
+  @apply text-xl font-semibold;
 }
 
 h4 {
-  @apply text-lg;
-}
-
-h1,
-h2,
-h3 {
-  @apply font-bold;
+  @apply text-xl font-semibold;
 }
 
 clip {
@@ -33,5 +28,5 @@ clip {
 }
 
 :root {
-  @apply dark:text-white;
+  @apply dark:text-white font-sans;
 }

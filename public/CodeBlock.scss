@@ -4,6 +4,7 @@
 article {
   .code {
     position: relative;
+    overflow-x: scroll;
   }
 
   /* Override Prism styles */

@@ -85,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
               <>
                 <TableOfContents toc={toc} />
 
-                <main className="p-6 flex-grow content-bg rounded xl:mx-8 lg:ml-8">
+                <main className="p-6 flex-grow content-bg rounded xl:mx-8 lg:ml-8 w-full">
                   <h1 id="root" className="mb-2 pb-2 border-b-2">
                     {pageProps.markdoc.frontmatter.title}
                   </h1>

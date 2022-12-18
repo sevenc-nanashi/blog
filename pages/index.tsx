@@ -55,34 +55,32 @@ const Index = (props) => (
     </div>
     {props.articles.map((article) => (
       <Link href={`/articles/${article.name}`} key={article.name}>
-        <a>
-          <div className="content-bg round p-4 w-full rounded">
-            <h2>{article.title}</h2>
-            <div>
-              {article.tags.length > 0 ? (
-                article.tags.map((e) => (
-                  <span
-                    className="rounded-full bg-theme-pale text-sm py-[2px] px-2 mr-1 text-theme"
-                    key={`${article.name}-${e}`}
-                  >
-                    {e}
-                  </span>
-                ))
-              ) : (
-                <p className="opacity-50">タグ無し</p>
-              )}
-            </div>
-            <p>{article.summary}</p>
-            <div className="opacity-50 flex">
-              <p>
-                作成：
-                <time suppressHydrationWarning>
-                  {new Date(article.date).toLocaleString()}
-                </time>
-              </p>
-            </div>
+        <div className="content-bg round p-4 w-full rounded">
+          <h2>{article.title}</h2>
+          <div>
+            {article.tags.length > 0 ? (
+              article.tags.map((e) => (
+                <span
+                  className="rounded-full bg-theme-pale text-sm py-[2px] px-2 mr-1 text-theme font-bold"
+                  key={`${article.name}-${e}`}
+                >
+                  {e}
+                </span>
+              ))
+            ) : (
+              <p className="opacity-50">タグ無し</p>
+            )}
           </div>
-        </a>
+          <p>{article.summary}</p>
+          <div className="opacity-50 flex">
+            <p>
+              作成：
+              <time suppressHydrationWarning>
+                {new Date(article.date).toLocaleString()}
+              </time>
+            </p>
+          </div>
+        </div>
       </Link>
     ))}
   </div>

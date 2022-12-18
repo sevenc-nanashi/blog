@@ -45,7 +45,7 @@ export function TableOfContents({ toc }) {
             <ul className="pl-4 lg:pl-0">
               <li className="text-theme text-2xl lg:text-xl font-bold">
                 <Link href="#root" passHref>
-                  <a>目次</a>
+                  目次
                 </Link>
               </li>
               {items.map((item) => {
@@ -63,15 +63,15 @@ export function TableOfContents({ toc }) {
                       .filter(Boolean)
                       .join(" ")}
                   >
-                    <Link href={href} passHref>
-                      <a
-                        onClick={() => {
-                          setOpen(false)
-                        }}
-                        className="hover:text-theme"
-                      >
-                        {item.title}
-                      </a>
+                    <Link
+                      href={href}
+                      passHref
+                      onClick={() => {
+                        setOpen(false)
+                      }}
+                      className="hover:text-theme"
+                    >
+                      {item.title}
                     </Link>
                   </li>
                 )
